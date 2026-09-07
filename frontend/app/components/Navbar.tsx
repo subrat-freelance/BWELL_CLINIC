@@ -134,8 +134,8 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               <Image
                 src="/logo-wordmark.png"
                 alt={CLINIC.name}
-                width={303}
-                height={109}
+                width={284}
+                height={103}
                 className="h-7 w-auto"
                 priority
               />
