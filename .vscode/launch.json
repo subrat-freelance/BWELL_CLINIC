@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Breakpoints in main.py. --reload is deliberately absent: the reloader
+      // spawns a child process the debugger is not attached to, so breakpoints
+      // silently stop firing. Use the "backend" task when you want auto-reload.
+      "name": "Debug backend",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["main:app", "--host", "127.0.0.1", "--port", "8000"],
+      "cwd": "${workspaceFolder}/backend",
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "Debug frontend (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/frontend"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug both",
+      "configurations": ["Debug backend", "Debug frontend (Chrome)"],
+      "stopAll": true
+    }
+  ]
+}

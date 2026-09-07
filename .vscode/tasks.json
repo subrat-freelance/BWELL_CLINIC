@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "backend",
+      "type": "shell",
+      "command": ".venv/Scripts/python.exe -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload",
+      "windows": {
+        "command": ".venv/Scripts/python.exe -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload"
+      },
+      "linux": {
+        "command": ".venv/bin/python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload"
+      },
+      "osx": {
+        "command": ".venv/bin/python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload"
+      },
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "group": "bwell", "panel": "dedicated", "reveal": "always" }
+    },
+    {
+      "label": "frontend",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/frontend" },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "group": "bwell", "panel": "dedicated", "reveal": "always" }
+    },
+    {
+      "label": "Run B-Well",
+      "dependsOn": ["backend", "frontend"],
+      "dependsOrder": "parallel",
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "Seed demo data (resets the database)",
+      "type": "shell",
+      "command": ".venv/Scripts/python.exe seed.py --reset",
+      "linux": { "command": ".venv/bin/python seed.py --reset" },
+      "osx": { "command": ".venv/bin/python seed.py --reset" },
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Backend tests",
+      "type": "shell",
+      "command": ".venv/Scripts/python.exe test_app.py",
+      "linux": { "command": ".venv/bin/python test_app.py" },
+      "osx": { "command": ".venv/bin/python test_app.py" },
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  // Saves the "Python: Select Interpreter" dance — the venv is inside backend/.
+  "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.next": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/.venv": true
+  }
+}
