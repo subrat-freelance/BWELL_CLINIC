@@ -17,6 +17,8 @@ const display = Newsreader({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://bwellphysio-bbsr.in"),
+  alternates: { canonical: "/" },
   title: `${CLINIC.name} — ${CLINIC.address.line2}, ${CLINIC.address.city}`,
   description:
     `Physiotherapy clinic in ${CLINIC.address.line2}, ${CLINIC.address.city}, specialising in ` +
